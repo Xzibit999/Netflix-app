@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "845457242759",
+    "firebase_url": "https://netflix-app-2241f-default-rtdb.firebaseio.com",
+    "project_id": "netflix-app-2241f",
+    "storage_bucket": "netflix-app-2241f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845457242759:android:156e0831a41c5bc4a81622",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOE_8po8GDDh45Jqnd3hzq7f72w_Gk9So"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

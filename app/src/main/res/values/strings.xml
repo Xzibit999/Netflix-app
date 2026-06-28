@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Netflix Clone</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="action_sign_in_short">Sign In</string>
+    <string name="welcome_netflix">Welcome to Car Showcase</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="login_title">Login</string>
+    <string name="register_title">Register</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="forgot_password_hint">Enter your email to receive a reset link</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="new_to_netflix">New to Car Showcase? Register Now</string>
+    <string name="forgot_password_q">Forgot Password?</string>
+    <string name="netflix_logo">CARS</string>
+    <string name="full_name">Full Name</string>
+    <string name="registration_successful">Registration Successful</string>
+    <string name="login_successful">Login Successful</string>
+    <string name="reset_link_sent">Reset Link Sent</string>
+    <string name="login_failed">Login failed</string>
+    <string name="invalid_username">Not a valid email</string>
+    <string name="invalid_password">Password must be at least 6 characters</string>
+    <string name="already_have_account">Already have an account? Sign In</string>
+    <string name="popular_on_netflix">Popular Models</string>
+    <string name="trending_now">Top Luxury</string>
+</resources>
