@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.adapter.ProductAdapter
 
 import com.example.myapplication.repository.UserRepoImpl
+import com.squareup.picasso.Picasso
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -28,9 +29,20 @@ class DashboardActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Car Showcase"
+        supportActionBar?.title = "" // Clear default title to show NETFLIX logo-style text
+
+        val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
+        Picasso.get()
+            .load("https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGJlZDE0NzMxYTQyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg")
+            .into(ivFeatured)
 
         setupRecyclerViews()
+        
+        // FORCE RESET: Clear database and re-seed with movies once
+        repo.clearAllProducts { 
+            seedProducts()
+        }
+
         loadProducts()
 
         val signOutBtn = findViewById<Button>(R.id.btnSignOut)
@@ -56,12 +68,18 @@ class DashboardActivity : AppCompatActivity() {
     private fun loadProducts() {
         repo.getAllProducts { products, message ->
             if (products != null) {
-                if (products.isEmpty()) {
-                    seedProducts()
+                val hasOldData = products.any { 
+                    val name = it.name.lowercase()
+                    name.contains("car") || name.contains("bmw") || name.contains("tesla") || name.contains("audi")
+                }
+                
+                if (products.isEmpty() || hasOldData) {
+                    repo.clearAllProducts { success ->
+                        if (success) seedProducts()
+                    }
                 } else {
-                    // Split products into categories if you want, or just show them
-                    popularAdapter.updateData(products.take(5))
-                    trendingAdapter.updateData(products.takeLast(5))
+                    popularAdapter.updateData(products.filter { it.category == "Popular" })
+                    trendingAdapter.updateData(products.filter { it.category == "Trending" })
                 }
             } else {
                 Toast.makeText(this, "Error: $message", Toast.LENGTH_SHORT).show()
@@ -71,26 +89,87 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun seedProducts() {
         val repo = ProductRepoImpl()
+        
         val products = listOf(
-            ProductModel(name = "Tesla Model S", description = "Electric Luxury Sedan", price = 89990.0, category = "Electric"),
-            ProductModel(name = "Ford Mustang", description = "Classic American Muscle Car", price = 55000.0, category = "Muscle"),
-            ProductModel(name = "BMW M4", description = "High-Performance Coupe", price = 78000.0, category = "Performance"),
-            ProductModel(name = "Audi R8", description = "Mid-Engine Sports Car", price = 158000.0, category = "Exotic"),
-            ProductModel(name = "Porsche 911", description = "Iconic Rear-Engine Sports Car", price = 114000.0, category = "Sports"),
-            ProductModel(name = "Toyota Supra", description = "Legendary Japanese Sports Car", price = 52000.0, category = "Sports"),
-            ProductModel(name = "Honda Civic Type R", description = "Ultimate Hot Hatch", price = 44000.0, category = "Hatchback"),
-            ProductModel(name = "Mercedes-Benz G-Wagon", description = "Luxury Off-Road SUV", price = 139000.0, category = "SUV"),
-            ProductModel(name = "Lamborghini Huracan", description = "V10 Supercar Performance", price = 210000.0, category = "Supercar"),
-            ProductModel(name = "Ferrari F8", description = "Italian Exotic Masterpiece", price = 280000.0, category = "Supercar")
+            ProductModel(
+                name = "Stranger Things",
+                description = "Mystery, Sci-Fi",
+                price = 0.0,
+                category = "Trending",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGJlZDE0NzMxYTQyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "The Witcher",
+                description = "Action, Adventure",
+                price = 0.0,
+                category = "Trending",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BOGE4MmVjMDgtMzIzYy00NjEwLWJlODMtMDI1MGY2ZDkwMzE2XkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Wednesday",
+                description = "Comedy, Crime",
+                price = 0.0,
+                category = "Trending",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BM2MyNwYyM2UtNjUyZi00NmY0LWEwZDYtOWVmDFjODcwYTRiXkEyXkFqcGdeQXVyMTMzNzIyMDc0._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Money Heist",
+                description = "Action, Crime",
+                price = 0.0,
+                category = "Popular",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BODI0ZTljYTMtODQ1NC00NmI0LTk1YWUtN2FlNDM1MDExMDUzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Dark",
+                description = "Crime, Drama",
+                price = 0.0,
+                category = "Popular",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "The Crown",
+                description = "Biography, Drama",
+                price = 0.0,
+                category = "Popular",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BZmY0MzAyNTgtMzQ3My00ZGVmLTg3NGEtZTE4OWE2ZTgzZDY4XkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Squid Game",
+                description = "Action, Thriller",
+                price = 0.0,
+                category = "Trending",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BYWE3MDVkN2EtNjQ5MS00ZDQ4LTliNzYtM2I2OGE1OTYzYzEzXkEyXkFqcGdeQXVyNjU1OTg4OTM@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Peaky Blinders",
+                description = "Crime, Drama",
+                price = 0.0,
+                category = "Popular",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BZjYzZDgzMmYtZGIxNS00ZDNmLWJkZWUtOTQyMWYwNWRhNTc0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Breaking Bad",
+                description = "Crime, Drama",
+                price = 0.0,
+                category = "Classic",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTUtMTMyN2UxNmJjNmVkXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg"
+            ),
+            ProductModel(
+                name = "Interstellar",
+                description = "Sci-Fi",
+                price = 0.0,
+                category = "Movies",
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+            )
         )
 
         products.forEach { product ->
             repo.addProduct(product) { success, _ ->
                 if (success) {
-                    // Car added successfully
+                    // Movie added successfully
                 }
             }
         }
-        Toast.makeText(this, "Seeding 10 cars to Firebase...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Seeding Netflix content to Firebase...", Toast.LENGTH_SHORT).show()
     }
 }

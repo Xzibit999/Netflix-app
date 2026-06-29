@@ -74,4 +74,8 @@ class ProductRepoImpl : ProductRepo {
             }
         })
     }
+
+    fun clearAllProducts(callback: (Boolean) -> Unit) {
+        productsRef.removeValue().addOnCompleteListener { callback(it.isSuccessful) }
+    }
 }
