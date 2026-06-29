@@ -96,70 +96,70 @@ class DashboardActivity : AppCompatActivity() {
                 description = "When a young boy vanishes, a small town uncovers a mystery involving secret experiments.",
                 price = 9.5,
                 category = "Trending",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/49WfT1UuUpWShwinB296CztpZgB.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/49WfT1UuUpWShwinB296CztpZgB.jpg"
             ),
             ProductModel(
                 name = "Squid Game",
                 description = "Hundreds of cash-strapped players accept a strange invitation to compete in children's games.",
                 price = 8.1,
                 category = "Trending",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/d5NXSklZfsDfUFEyc6u46u6u97v.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/d5NXSklZfsDfUFEyc6u46u6u97v.jpg"
             ),
             ProductModel(
                 name = "Wednesday",
                 description = "Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree.",
                 price = 8.2,
                 category = "Trending",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/9PFonB9tqdt6oqdKFpPSAnfkvqh.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/9PFonB9tqdt6oqdKFpPSAnfkvqh.jpg"
             ),
             ProductModel(
                 name = "The Witcher",
                 description = "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny.",
                 price = 8.1,
                 category = "Trending",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/u7S7H68Q9YpYv077O0v2mYp9Swa.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/u7S7H68Q9YpYv077O0v2mYp9Swa.jpg"
             ),
             ProductModel(
                 name = "Money Heist",
                 description = "Eight thieves take hostages and lock themselves in the Royal Mint of Spain.",
                 price = 8.2,
                 category = "Popular",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/reEMJA1uzpG3SZ0KGv7Gz9XpTid.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/reEMJA1uzpG3SZ0KGv7Gz9XpTid.jpg"
             ),
             ProductModel(
                 name = "Dark",
                 description = "A family saga with a supernatural twist, set in a German town.",
                 price = 8.8,
                 category = "Popular",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ap8Y9S7znS7R7m77o9679vC3m9Y.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/ap8Y9S7znS7R7m77o9679vC3m9Y.jpg"
             ),
             ProductModel(
                 name = "The Crown",
                 description = "Follows the political rivalries and romance of Queen Elizabeth II's reign.",
                 price = 8.6,
                 category = "Popular",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7Y8Y7Y8Y7Y8Y7Y8Y7Y8Y7Y8Y7Y8Y.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/70A96B99YpYv077O0v2mYp9Swa.jpg"
             ),
             ProductModel(
                 name = "Peaky Blinders",
                 description = "A gangster family epic set in 1900s England.",
                 price = 8.8,
                 category = "Popular",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/v9qxr9O0S0R5y7W9fV2Y8Y0Y8Y0Y.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/v9qxr9O0S0R5y7W9fV2Y8Y0Y8Y0Y.jpg"
             ),
             ProductModel(
                 name = "Breaking Bad",
                 description = "A high school chemistry teacher turned meth kingpin.",
                 price = 9.5,
                 category = "Popular",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ztkUQfjwhC19DbpgghqbDnQh9Ep.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/ztkUQfjwhC19DbpgghqbDnQh9Ep.jpg"
             ),
             ProductModel(
                 name = "Inception",
                 description = "A thief who steals corporate secrets through the use of dream-sharing technology.",
                 price = 8.8,
                 category = "Popular",
-                imageUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/edv5CZvnc0a9YFYqRzdILOGFiqa.jpg"
+                imageUrl = "https://images.tmdb.org/t/p/w500/edv5CZvnc0a9YFYqRzdILOGFiqa.jpg"
             )
         )
 

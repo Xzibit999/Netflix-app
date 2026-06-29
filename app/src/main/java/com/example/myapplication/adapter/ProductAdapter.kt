@@ -40,11 +40,17 @@ class ProductAdapter(private var products: List<ProductModel>) :
         if (product.imageUrl.isNotEmpty()) {
             Picasso.get()
                 .load(product.imageUrl)
-                .fit()
-                .centerCrop()
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .error(android.R.drawable.stat_notify_error)
-                .into(holder.image)
+                .placeholder(android.R.drawable.progress_horizontal)
+                .error(android.R.drawable.ic_dialog_alert)
+                .into(holder.image, object : com.squareup.picasso.Callback {
+                    override fun onSuccess() {
+                        android.util.Log.d("Picasso", "Successfully loaded: ${product.imageUrl}")
+                    }
+
+                    override fun onError(e: Exception?) {
+                        android.util.Log.e("Picasso", "Error loading image: ${product.imageUrl}", e)
+                    }
+                })
         } else {
             holder.image.setImageResource(R.drawable.ic_launcher_foreground)
         }
