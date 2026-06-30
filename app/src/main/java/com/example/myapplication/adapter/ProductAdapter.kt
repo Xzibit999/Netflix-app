@@ -8,10 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.ProductModel
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 import android.content.Intent
-import com.example.myapplication.bottom_menu.VideoPlayerActivity
+import com.example.myapplication.ui.login.MovieDetailsActivity
 
 class ProductAdapter(private var products: List<ProductModel>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -38,25 +39,19 @@ class ProductAdapter(private var products: List<ProductModel>) :
         android.util.Log.d("ProductAdapter", "Loading image for ${product.name}: ${product.imageUrl}")
 
         if (product.imageUrl.isNotEmpty()) {
-            Picasso.get()
+            Glide.with(holder.itemView.context)
                 .load(product.imageUrl)
-                .placeholder(android.R.drawable.progress_horizontal)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .placeholder(R.drawable.ic_launcher_foreground)
                 .error(android.R.drawable.ic_dialog_alert)
-                .into(holder.image, object : com.squareup.picasso.Callback {
-                    override fun onSuccess() {
-                        android.util.Log.d("Picasso", "Successfully loaded: ${product.imageUrl}")
-                    }
-
-                    override fun onError(e: Exception?) {
-                        android.util.Log.e("Picasso", "Error loading image: ${product.imageUrl}", e)
-                    }
-                })
+                .into(holder.image)
         } else {
             holder.image.setImageResource(R.drawable.ic_launcher_foreground)
         }
         
         holder.card.setOnClickListener {
-            val intent = Intent(holder.itemView.context, VideoPlayerActivity::class.java)
+            val intent = Intent(holder.itemView.context, MovieDetailsActivity::class.java)
+            intent.putExtra("movie", product)
             holder.itemView.context.startActivity(intent)
         }
     }
