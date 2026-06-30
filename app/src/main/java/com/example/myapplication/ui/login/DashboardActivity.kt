@@ -39,14 +39,13 @@ class DashboardActivity : AppCompatActivity() {
         supportActionBar?.title = "" // Clear default title to show NETFLIX logo-style text
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
-        ivFeatured.setBackgroundColor(android.graphics.Color.DKGRAY) // Ensure it's not transparent
         
-        // Testing with a different, very stable image source (Wikipedia/Wikimedia)
-        val testUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
+        // High-quality backdrop from Stranger Things
+        val movieBackdropUrl = "https://image.tmdb.org/t/p/original/56v2KjBlU4p9rTzuZ113vNA2SZb.jpg"
         
         Glide.with(this)
-            .load(testUrl)
-            .centerInside()
+            .load(movieBackdropUrl)
+            .centerCrop()
             .placeholder(android.R.drawable.progress_indeterminate_horizontal)
             .error(android.R.drawable.ic_menu_report_image)
             .into(ivFeatured)
