@@ -26,33 +26,51 @@
     <main class="page-shell">
       <section class="content-section details-layout">
         <div class="details-hero">
-          <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&q=80" alt="Featured movie still" />
+          <img src="https://image.tmdb.org/t/p/w500/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg" alt="Inception movie poster" />
+          <div class="details-hero-overlay">
+            <span class="video-badge">Featured Film</span>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="browse.html">Play now</a>
+              <a class="btn btn-secondary" href="index.html">Back home</a>
+            </div>
+          </div>
         </div>
 
         <div class="details-body">
           <p class="eyebrow">Featured title</p>
-          <h2>Midnight Drift</h2>
-          <p>
-            A high-stakes thriller about a courier who discovers a hidden network beneath a neon-lit
-            city. Taut pacing, vivid visuals, and a daring final act make it an instant standout.
+          <h2>Inception</h2>
+          <p id="detail-summary">
+            A mind-bending heist thriller about entering dreams to steal secrets and plant ideas.
+            With a layered narrative and unforgettable visuals, it remains one of the most iconic
+            modern sci-fi films.
           </p>
 
-          <div class="meta-row">
-            <span class="meta-chip">2026</span>
-            <span class="meta-chip">Thriller</span>
-            <span class="meta-chip">2h 06m</span>
-            <span class="meta-chip">8.9 IMDb</span>
+          <div class="meta-row" id="detail-meta-row">
+            <span class="meta-chip">2010</span>
+            <span class="meta-chip">Sci-Fi</span>
+            <span class="meta-chip">2h 28m</span>
+            <span class="meta-chip">8.8 IMDb</span>
           </div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="browse.html">Play now</a>
-            <a class="btn btn-secondary" href="index.html">Back home</a>
+          <div class="stats-row">
+            <div>
+              <strong>92%</strong>
+              <span>Audience Score</span>
+            </div>
+            <div>
+              <strong>8.8</strong>
+              <span>IMDb Rating</span>
+            </div>
+            <div>
+              <strong>4K</strong>
+              <span>Streaming Quality</span>
+            </div>
           </div>
 
           <div class="cast-list">
-            <div><strong>Director</strong><br />Mina Torres</div>
-            <div><strong>Cast</strong><br />Jules Hart, Elia Cruz, Theo Barnes</div>
-            <div><strong>Why it stands out</strong><br />Stylish cinematography and a gripping mystery.</div>
+            <div><strong>Director</strong><br />Christopher Nolan</div>
+            <div><strong>Cast</strong><br />Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page</div>
+            <div><strong>Why it stands out</strong><br />A stunning mix of spectacle, emotion, and cerebral storytelling.</div>
           </div>
         </div>
       </section>
@@ -63,6 +81,7 @@
       <a href="https://github.com/Xzibit999/Netflix-app" target="_blank" rel="noreferrer">Open GitHub</a>
     </footer>
 
+    <script src="api.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

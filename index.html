@@ -34,7 +34,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Now streaming</p>
           <h1>Stories that feel bigger than the screen.</h1>
-          <p>
+          <p class="hero-text">
             Discover premium originals, cinematic thrillers, and comfort classics in one elegant
             streaming experience designed to feel effortless.
           </p>
@@ -79,25 +79,25 @@
           <a href="browse.html">See all</a>
         </div>
         <div class="card-row">
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=900&q=80" alt="Neon city thriller poster" />
+          <article class="movie-card" data-category="sci-fi">
+            <img src="https://image.tmdb.org/t/p/w500/oXUWEcUiONHk2MjM2r4dFJQK8ea.jpg" alt="Inception poster" loading="lazy" />
             <div class="card-info">
-              <h3>Neon City</h3>
-              <p>Sci-fi • 2025</p>
+              <h3>Inception</h3>
+              <p>Sci-Fi • 2010</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Ocean mystery movie poster" />
+          <article class="movie-card" data-category="thriller">
+            <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite poster" loading="lazy" />
             <div class="card-info">
-              <h3>Deep Current</h3>
-              <p>Mystery • 2024</p>
+              <h3>Parasite</h3>
+              <p>Thriller • 2019</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="Retro romance movie poster" />
+          <article class="movie-card" data-category="comedy">
+            <img src="https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWdlRpp.jpg" alt="The Grand Budapest Hotel poster" loading="lazy" />
             <div class="card-info">
-              <h3>Velvet Hour</h3>
-              <p>Romance • 2023</p>
+              <h3>The Grand Budapest Hotel</h3>
+              <p>Comedy • 2014</p>
             </div>
           </article>
         </div>
@@ -118,6 +118,35 @@
           <div><span>Rich motion details</span><strong>✓</strong></div>
         </div>
       </section>
+
+      <section class="content-section video-section">
+        <div class="section-heading">
+          <h2>Now playing</h2>
+          <a href="details.html">Open details</a>
+        </div>
+        <div class="video-shell">
+          <div class="video-player">
+            <div class="video-overlay">
+              <div class="video-badge">4K • Dolby Atmos</div>
+              <div class="video-controls">
+                <span class="control-dot"></span>
+                <span class="control-dot"></span>
+                <span class="control-dot"></span>
+              </div>
+            </div>
+            <div class="video-poster"></div>
+          </div>
+          <div class="video-side-panel">
+            <h3>Watch the latest blockbuster</h3>
+            <p>Immersive visuals, cinematic sound, and seamless playback styling create the feel of a real streaming interface.</p>
+            <div class="video-tags">
+              <span>Action</span>
+              <span>Adventure</span>
+              <span>Ultra HD</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -125,6 +154,7 @@
       <a href="https://github.com/Xzibit999/Netflix-app" target="_blank" rel="noreferrer">Open GitHub</a>
     </footer>
 
+    <script src="api.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

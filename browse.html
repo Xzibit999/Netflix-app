@@ -35,54 +35,56 @@
         </div>
 
         <div class="filter-bar" aria-label="Category filters">
-          <button class="filter-pill active">All</button>
-          <button class="filter-pill">Thriller</button>
-          <button class="filter-pill">Comedy</button>
-          <button class="filter-pill">Sci-fi</button>
-          <button class="filter-pill">Drama</button>
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="action">Action</button>
+          <button class="filter-pill" data-filter="thriller">Thriller</button>
+          <button class="filter-pill" data-filter="comedy">Comedy</button>
+          <button class="filter-pill" data-filter="sci-fi">Sci-Fi</button>
+          <button class="filter-pill" data-filter="drama">Drama</button>
+          <button class="filter-pill" data-filter="mystery">Mystery</button>
         </div>
 
         <div class="movie-grid">
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=900&q=80" alt="Neon City poster" />
+          <article class="movie-card" data-category="sci-fi">
+            <img src="https://image.tmdb.org/t/p/w500/oXUWEcUiONHk2MjM2r4dFJQK8ea.jpg" alt="Inception poster" loading="lazy" />
             <div class="card-info">
-              <h3>Neon City</h3>
-              <p>Sci-fi • 2025 • 8.6</p>
+              <h3>Inception</h3>
+              <p>Sci-Fi • 2010 • 8.8</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Deep Current poster" />
+          <article class="movie-card" data-category="thriller">
+            <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite poster" loading="lazy" />
             <div class="card-info">
-              <h3>Deep Current</h3>
-              <p>Mystery • 2024 • 7.9</p>
+              <h3>Parasite</h3>
+              <p>Thriller • 2019 • 8.5</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="Velvet Hour poster" />
+          <article class="movie-card" data-category="action">
+            <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkJBxknsMlUz.jpg" alt="The Matrix poster" loading="lazy" />
             <div class="card-info">
-              <h3>Velvet Hour</h3>
-              <p>Romance • 2023 • 8.2</p>
+              <h3>The Matrix</h3>
+              <p>Action • 1999 • 8.7</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Night Shift poster" />
+          <article class="movie-card" data-category="drama">
+            <img src="https://image.tmdb.org/t/p/w500/uDO8zwdLE1OS9lG5vSxP2EAxF5d.jpg" alt="La La Land poster" loading="lazy" />
             <div class="card-info">
-              <h3>Night Shift</h3>
-              <p>Drama • 2022 • 7.7</p>
+              <h3>La La Land</h3>
+              <p>Drama • 2016 • 8.0</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80" alt="Atlas Run poster" />
+          <article class="movie-card" data-category="mystery">
+            <img src="https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg" alt="Knives Out poster" loading="lazy" />
             <div class="card-info">
-              <h3>Atlas Run</h3>
-              <p>Thriller • 2026 • 8.8</p>
+              <h3>Knives Out</h3>
+              <p>Mystery • 2019 • 7.9</p>
             </div>
           </article>
-          <article class="movie-card">
-            <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=900&q=80" alt="The Last Lift poster" />
+          <article class="movie-card" data-category="comedy">
+            <img src="https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWdlRpp.jpg" alt="The Grand Budapest Hotel poster" loading="lazy" />
             <div class="card-info">
-              <h3>The Last Lift</h3>
-              <p>Comedy • 2021 • 7.4</p>
+              <h3>The Grand Budapest Hotel</h3>
+              <p>Comedy • 2014 • 8.1</p>
             </div>
           </article>
         </div>
@@ -94,6 +96,7 @@
       <a href="https://github.com/Xzibit999/Netflix-app" target="_blank" rel="noreferrer">Open GitHub</a>
     </footer>
 
+    <script src="api.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
