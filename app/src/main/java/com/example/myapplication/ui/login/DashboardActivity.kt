@@ -40,7 +40,8 @@ class DashboardActivity : AppCompatActivity() {
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
         Glide.with(this)
-            .load("https://images.tmdb.org/t/p/w1280/49WfT1UuUpWShwinB296CztpZgB.jpg")
+            .load("https://images.tmdb.org/t/p/w1280/56v2KjBlU4p9rTzuZ113vNA2SZb.jpg") // Wednesday Backdrop
+            .centerCrop()
             .into(ivFeatured)
 
         setupRecyclerViews()
