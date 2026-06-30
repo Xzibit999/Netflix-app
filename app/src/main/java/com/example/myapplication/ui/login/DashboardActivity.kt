@@ -40,15 +40,14 @@ class DashboardActivity : AppCompatActivity() {
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
         
-        // Using a high-quality movie-themed image from Wikimedia (very stable source)
-        // This is a professional cinema-style shot that works as a great backdrop
-        val movieBackdropUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_Buck_Bunny_-_Workshop_Scene.png/1280px-Big_Buck_Bunny_-_Workshop_Scene.png"
+        // High-quality movie poster (Stranger Things) from a very reliable source
+        val movieBackdropUrl = "https://images.plex.tv/production/show/backdrops/5d660a5e4b6c3b001f3014a4/backdrops/5d660a5e4b6c3b001f3014a4-1.jpg"
         
         Glide.with(this)
             .load(movieBackdropUrl)
             .centerCrop()
             .placeholder(android.R.drawable.progress_indeterminate_horizontal)
-            .error(android.R.drawable.ic_menu_report_image)
+            .error(android.R.drawable.stat_notify_error)
             .into(ivFeatured)
 
         setupRecyclerViews()
