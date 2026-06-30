@@ -40,8 +40,8 @@ class DashboardActivity : AppCompatActivity() {
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
         
-        // High-quality movie poster (Stranger Things) from a very reliable source
-        val movieBackdropUrl = "https://images.plex.tv/production/show/backdrops/5d660a5e4b6c3b001f3014a4/backdrops/5d660a5e4b6c3b001f3014a4-1.jpg"
+        // High-quality movie poster (Spider-Man) from a very reliable source (Wikipedia)
+        val movieBackdropUrl = "https://upload.wikimedia.org/wikipedia/en/3/3b/Spider-Man_Across_the_Spider-Verse_poster.jpg"
         
         Glide.with(this)
             .load(movieBackdropUrl)
