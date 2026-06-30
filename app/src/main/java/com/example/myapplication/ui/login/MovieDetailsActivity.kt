@@ -9,6 +9,9 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.model.ProductModel
 
+import android.content.Intent
+import com.example.myapplication.bottom_menu.VideoPlayerActivity
+
 class MovieDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +31,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnPlayMovie).setOnClickListener {
-            // Logic to play movie (e.g. open VideoPlayerActivity)
+            val intent = Intent(this, VideoPlayerActivity::class.java)
+            startActivity(intent)
         }
     }
 }

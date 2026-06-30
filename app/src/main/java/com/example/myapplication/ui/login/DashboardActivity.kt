@@ -28,7 +28,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var trendingAdapter: ProductAdapter
     
     // Replace with your real TMDB API Key
-    private val TMDB_API_KEY = "38a733bc5d365b5c9735d54026857f72" 
+    private val TMDB_API_KEY = "c8ac72ad3535de0d68ee95a6bb28a544"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +47,10 @@ class DashboardActivity : AppCompatActivity() {
         
         fetchTrendingMovies()
         fetchPopularMovies()
+
+        findViewById<Button>(R.id.btnPlay).setOnClickListener {
+            startActivity(Intent(this, com.example.myapplication.bottom_menu.VideoPlayerActivity::class.java))
+        }
 
         val signOutBtn = findViewById<Button>(R.id.btnSignOut)
         signOutBtn?.setOnClickListener {
