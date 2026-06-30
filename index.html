@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamVault | Home</title>
+    <meta
+      name="description"
+      content="A cinematic streaming website experience built for a Netflix-inspired app project."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-bg"></div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html">StreamVault</a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="details.html">Details</a>
+      </nav>
+      <a class="ghost-link" href="browse.html">Start watching</a>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Now streaming</p>
+          <h1>Stories that feel bigger than the screen.</h1>
+          <p>
+            Discover premium originals, cinematic thrillers, and comfort classics in one elegant
+            streaming experience designed to feel effortless.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="browse.html">Browse library</a>
+            <a class="btn btn-secondary" href="details.html">Watch trailer</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <strong>4K</strong>
+              <span>Ultra clarity</span>
+            </div>
+            <div>
+              <strong>200+</strong>
+              <span>Curated titles</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Smart picks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="player-card">
+            <div class="player-top">
+              <span class="pill">Now Playing</span>
+              <span class="dot"></span>
+            </div>
+            <div class="player-poster"></div>
+            <div class="player-info">
+              <h2>Midnight Drift</h2>
+              <p>Thriller • 2026 • 8.9</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-heading">
+          <h2>Featured this week</h2>
+          <a href="browse.html">See all</a>
+        </div>
+        <div class="card-row">
+          <article class="movie-card">
+            <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=900&q=80" alt="Neon city thriller poster" />
+            <div class="card-info">
+              <h3>Neon City</h3>
+              <p>Sci-fi • 2025</p>
+            </div>
+          </article>
+          <article class="movie-card">
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Ocean mystery movie poster" />
+            <div class="card-info">
+              <h3>Deep Current</h3>
+              <p>Mystery • 2024</p>
+            </div>
+          </article>
+          <article class="movie-card">
+            <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80" alt="Retro romance movie poster" />
+            <div class="card-info">
+              <h3>Velvet Hour</h3>
+              <p>Romance • 2023</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section split-panel">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2>Designed to feel fast, fluent, and premium.</h2>
+          <p>
+            Smooth navigation, vivid previews, and responsive cards make every visit feel like a
+            polished streaming app rather than a static landing page.
+          </p>
+        </div>
+        <div class="stack-list">
+          <div><span>Personalized picks</span><strong>✓</strong></div>
+          <div><span>Seamless browsing</span><strong>✓</strong></div>
+          <div><span>Rich motion details</span><strong>✓</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built for the Netflix-inspired project as a vivid multi-page experience.</p>
+      <a href="https://github.com/Xzibit999/Netflix-app" target="_blank" rel="noreferrer">Open GitHub</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
