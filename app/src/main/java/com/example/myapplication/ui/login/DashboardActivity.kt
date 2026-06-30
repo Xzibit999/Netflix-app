@@ -39,9 +39,12 @@ class DashboardActivity : AppCompatActivity() {
         supportActionBar?.title = "" // Clear default title to show NETFLIX logo-style text
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
+        // Using a reliable direct link to a Squid Game poster as a fallback
         Glide.with(this)
-            .load("https://images.tmdb.org/t/p/w1280/56v2KjBlU4p9rTzuZ113vNA2SZb.jpg") // Wednesday Backdrop
+            .load("https://www.themoviedb.org/t/p/original/d5NXSklZfsDfUFEyc6u46u6u97v.jpg")
             .centerCrop()
+            .placeholder(android.R.drawable.progress_indeterminate_horizontal)
+            .error(android.R.drawable.stat_notify_error)
             .into(ivFeatured)
 
         setupRecyclerViews()
