@@ -40,8 +40,9 @@ class DashboardActivity : AppCompatActivity() {
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
         
-        // High-quality backdrop from Stranger Things
-        val movieBackdropUrl = "https://image.tmdb.org/t/p/original/56v2KjBlU4p9rTzuZ113vNA2SZb.jpg"
+        // Using a high-quality movie-themed image from Wikimedia (very stable source)
+        // This is a professional cinema-style shot that works as a great backdrop
+        val movieBackdropUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_Buck_Bunny_-_Workshop_Scene.png/1280px-Big_Buck_Bunny_-_Workshop_Scene.png"
         
         Glide.with(this)
             .load(movieBackdropUrl)
