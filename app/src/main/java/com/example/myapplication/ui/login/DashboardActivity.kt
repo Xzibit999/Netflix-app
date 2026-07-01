@@ -40,18 +40,9 @@ class DashboardActivity : AppCompatActivity() {
 
         val ivFeatured = findViewById<android.widget.ImageView>(R.id.ivFeatured)
         
-        // High-quality movie poster (Spider-Man) from a very reliable source (Wikipedia)
-        val movieBackdropUrl = "https://upload.wikimedia.org/wikipedia/en/3/3b/Spider-Man_Across_the_Spider-Verse_poster.jpg"
-        
-        Glide.with(this)
-            .load(movieBackdropUrl)
-            .centerCrop()
-            .placeholder(android.R.drawable.progress_indeterminate_horizontal)
-            .error(android.R.drawable.stat_notify_error)
-            .into(ivFeatured)
-
         setupRecyclerViews()
         
+        fetchFeaturedMovie(ivFeatured)
         fetchTrendingMovies()
         fetchPopularMovies()
 
@@ -77,6 +68,25 @@ class DashboardActivity : AppCompatActivity() {
 
         rvPopular.adapter = popularAdapter
         rvTrending.adapter = trendingAdapter
+    }
+
+    private fun fetchFeaturedMovie(imageView: android.widget.ImageView) {
+        RetrofitClient.instance.getPopularMovies(TMDB_API_KEY).enqueue(object : Callback<TmdbResponse> {
+            override fun onResponse(call: Call<TmdbResponse>, response: Response<TmdbResponse>) {
+                if (response.isSuccessful) {
+                    val movie = response.body()?.results?.firstOrNull()
+                    if (movie != null) {
+                        val backdropUrl = "https://image.tmdb.org/t/p/original${movie.backdropPath}"
+                        Glide.with(this@DashboardActivity)
+                            .load(backdropUrl)
+                            .centerCrop()
+                            .placeholder(android.R.drawable.progress_indeterminate_horizontal)
+                            .into(imageView)
+                    }
+                }
+            }
+            override fun onFailure(call: Call<TmdbResponse>, t: Throwable) {}
+        })
     }
 
     private fun fetchTrendingMovies() {
