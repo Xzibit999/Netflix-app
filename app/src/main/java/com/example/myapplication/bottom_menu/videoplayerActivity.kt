@@ -24,8 +24,15 @@ class VideoPlayerActivity : AppCompatActivity() {
         player = ExoPlayer.Builder(this).build()
         playerView.player = player
 
-        // Sample video URL (Big Buck Bunny)
-        val videoUrl = "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        val youtubeUrl = intent.getStringExtra("VIDEO_URL")
+        // Note: Real YouTube playback requires YouTube Player API or a specialized library like android-youtube-player
+        // For now, if no custom URL is passed, we play the HD sample trailer
+        val videoUrl = if (youtubeUrl != null && !youtubeUrl.contains("youtube.com")) {
+            youtubeUrl 
+        } else {
+            "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        }
+
         val mediaItem = MediaItem.fromUri(videoUrl)
         player?.setMediaItem(mediaItem)
         player?.prepare()

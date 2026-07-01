@@ -3,6 +3,7 @@ package com.example.myapplication.network
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface TmdbApiService {
     @GET("movie/popular")
@@ -21,4 +22,10 @@ interface TmdbApiService {
     fun getTrending(
         @Query("api_key") apiKey: String
     ): Call<TmdbResponse>
+
+    @GET("movie/{movie_id}/videos")
+    fun getMovieVideos(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+    ): Call<TmdbVideoResponse>
 }

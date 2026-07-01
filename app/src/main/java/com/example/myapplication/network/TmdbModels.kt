@@ -15,3 +15,13 @@ data class TmdbMovie(
     val overview: String,
     @SerializedName("vote_average") val voteAverage: Double
 )
+
+data class TmdbVideoResponse(
+    val results: List<TmdbVideo>
+)
+
+data class TmdbVideo(
+    @SerializedName("key") val key: String,
+    @SerializedName("site") val site: String,
+    @SerializedName("type") val type: String
+)

@@ -104,5 +104,15 @@ class DashboardActivity : AppCompatActivity() {
                 .centerCrop()
                 .into(ivFeatured)
         }
+
+        movieViewModel.featuredVideoKey.observe(this) { videoKey ->
+            if (videoKey != null) {
+                findViewById<Button>(R.id.btnPlay).setOnClickListener {
+                    val intent = Intent(this, com.example.myapplication.bottom_menu.VideoPlayerActivity::class.java)
+                    intent.putExtra("VIDEO_URL", "https://www.youtube.com/watch?v=$videoKey")
+                    startActivity(intent)
+                }
+            }
+        }
     }
 }

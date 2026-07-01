@@ -22,6 +22,9 @@ class MovieViewModel : ViewModel() {
     private val _featuredMovie = MutableLiveData<ProductModel>()
     val featuredMovie: LiveData<ProductModel> = _featuredMovie
 
+    private val _featuredVideoKey = MutableLiveData<String?>()
+    val featuredVideoKey: LiveData<String?> = _featuredVideoKey
+
     fun fetchAllMovies(apiKey: String) {
         _isLoading.value = true
         
@@ -29,8 +32,12 @@ class MovieViewModel : ViewModel() {
             response?.results?.let { tmdbMovies ->
                 _trendingMovies.value = tmdbMovies.map { it.toProductModel("Trending") }
                 if (_featuredMovie.value == null) {
-                    val featured = tmdbMovies.firstOrNull()?.toProductModel("Featured")
-                    featured?.let { _featuredMovie.value = it }
+                    val firstMovie = tmdbMovies.firstOrNull()
+                    val featured = firstMovie?.toProductModel("Featured")
+                    featured?.let { 
+                        _featuredMovie.value = it 
+                        fetchVideoForKey(firstMovie.id, apiKey)
+                    }
                 }
             }
             checkLoadingFinished()
@@ -41,6 +48,12 @@ class MovieViewModel : ViewModel() {
                 _popularMovies.value = tmdbMovies.map { it.toProductModel("Popular") }
             }
             checkLoadingFinished()
+        }
+    }
+
+    private fun fetchVideoForKey(movieId: Int, apiKey: String) {
+        repository.getMovieVideo(movieId, apiKey) { key ->
+            _featuredVideoKey.value = key
         }
     }
 
