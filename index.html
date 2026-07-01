@@ -24,19 +24,25 @@
       <nav class="main-nav" aria-label="Primary navigation">
         <a class="active" href="index.html">Home</a>
         <a href="browse.html">Browse</a>
-        <a href="details.html">Details</a>
+        <a href="details.html">Movies</a>
+        <a href="browse.html">New &amp; Popular</a>
+        <a href="index.html">My List</a>
       </nav>
-      <a class="ghost-link" href="browse.html">Start watching</a>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">🔍</button>
+        <a class="ghost-link" href="browse.html">Browse</a>
+        <button class="icon-btn profile-btn" aria-label="Open profile"><span>SV</span></button>
+      </div>
     </header>
 
     <main class="page-shell">
       <section class="hero-panel">
         <div class="hero-copy">
           <p class="eyebrow">Now streaming</p>
-          <h1>Stories that feel bigger than the screen.</h1>
+          <h1>Premium movies, curated for every mood.</h1>
           <p class="hero-text">
-            Discover premium originals, cinematic thrillers, and comfort classics in one elegant
-            streaming experience designed to feel effortless.
+            Explore a polished streaming experience with crisp artwork, fast browsing, and
+            highly curated picks inspired by the world’s best platforms.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="browse.html">Browse library</a>
@@ -48,12 +54,12 @@
               <span>Ultra clarity</span>
             </div>
             <div>
-              <strong>200+</strong>
-              <span>Curated titles</span>
+              <strong>300+</strong>
+              <span>Expert picks</span>
             </div>
             <div>
-              <strong>24/7</strong>
-              <span>Smart picks</span>
+              <strong>Fast</strong>
+              <span>Instant browsing</span>
             </div>
           </div>
         </div>
@@ -64,7 +70,9 @@
               <span class="pill">Now Playing</span>
               <span class="dot"></span>
             </div>
-            <div class="player-poster"></div>
+            <div class="player-poster">
+              <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=900&q=80" alt="Midnight Drift poster" loading="lazy" />
+            </div>
             <div class="player-info">
               <h2>Midnight Drift</h2>
               <p>Thriller • 2026 • 8.9</p>
@@ -75,7 +83,7 @@
 
       <section class="content-section">
         <div class="section-heading">
-          <h2>Featured this week</h2>
+          <h2>Trending now</h2>
           <a href="browse.html">See all</a>
         </div>
         <div class="card-row">
@@ -98,6 +106,13 @@
             <div class="card-info">
               <h3>The Grand Budapest Hotel</h3>
               <p>Comedy • 2014</p>
+            </div>
+          </article>
+          <article class="movie-card" data-category="action">
+            <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkJBxknsMlUz.jpg" alt="The Matrix poster" loading="lazy" />
+            <div class="card-info">
+              <h3>The Matrix</h3>
+              <p>Action • 1999</p>
             </div>
           </article>
         </div>
@@ -125,21 +140,30 @@
           <a href="details.html">Open details</a>
         </div>
         <div class="video-shell">
-          <div class="video-player">
-            <div class="video-overlay">
-              <div class="video-badge">4K • Dolby Atmos</div>
-              <div class="video-controls">
-                <span class="control-dot"></span>
-                <span class="control-dot"></span>
-                <span class="control-dot"></span>
+          <div class="video-carousel-container">
+            <div class="video-carousel-track" id="carouselTrack">
+              <div class="carousel-slide">
+                <div class="video-player">
+                  <div class="video-overlay">
+                    <div>
+                      <div class="video-badge">Now Playing</div>
+                      <p class="video-label">Parasite</p>
+                    </div>
+                    <div class="video-controls">
+                      <span class="control-dot"></span>
+                      <span class="control-dot"></span>
+                      <span class="control-dot"></span>
+                    </div>
+                  </div>
+                  <img class="video-poster" src="https://image.tmdb.org/t/p/w780/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite" />
+                </div>
               </div>
             </div>
-            <div class="video-poster"></div>
           </div>
           <div class="video-side-panel">
-            <h3>Watch the latest blockbuster</h3>
-            <p>Immersive visuals, cinematic sound, and seamless playback styling create the feel of a real streaming interface.</p>
-            <div class="video-tags">
+            <h3 id="carouselTitle">Watch the latest blockbuster</h3>
+            <p id="carouselDesc">Immersive visuals, cinematic sound, and seamless playback styling create the feel of a real streaming interface.</p>
+            <div class="video-tags" id="carouselTags">
               <span>Action</span>
               <span>Adventure</span>
               <span>Ultra HD</span>

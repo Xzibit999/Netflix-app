@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Push Netflix site to GitHub",
+			"type": "shell",
+			"command": "git status --short > .vscode/git-push.log 2>&1 && git add index.html browse.html details.html styles.css api.js script.js >> .vscode/git-push.log 2>&1 && git commit -m \"Enhance streaming UI with detailed poster experience\" >> .vscode/git-push.log 2>&1 && git push origin main >> .vscode/git-push.log 2>&1",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Push Netflix site to GitHub",
+			"type": "shell",
+			"command": "git status --short > .vscode/git-push.log 2>&1 && git add index.html browse.html details.html styles.css api.js script.js >> .vscode/git-push.log 2>&1 && git commit -m \"Enhance streaming UI with detailed poster experience\" >> .vscode/git-push.log 2>&1 && git push origin main >> .vscode/git-push.log 2>&1",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

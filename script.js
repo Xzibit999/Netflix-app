@@ -22,21 +22,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const filterPills = document.querySelectorAll('.filter-pill');
   const movieCards = document.querySelectorAll('.movie-grid .movie-card');
+  const searchInput = document.querySelector('.search-bar input');
+
+  const updateMovieFilters = () => {
+    const selectedFilter = document.querySelector('.filter-pill.active')?.dataset.filter || 'all';
+    const query = searchInput?.value.trim().toLowerCase() || '';
+
+    movieCards.forEach((card) => {
+      const category = card.dataset.category || 'all';
+      const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const matchesSearch = !query || title.includes(query) || category.includes(query);
+      const matchesFilter = selectedFilter === 'all' || category === selectedFilter;
+      card.style.display = matchesSearch && matchesFilter ? '' : 'none';
+    });
+  };
 
   filterPills.forEach((pill) => {
     pill.addEventListener('click', () => {
-      const selectedFilter = pill.dataset.filter || 'all';
-
       filterPills.forEach((item) => item.classList.remove('active'));
       pill.classList.add('active');
-
-      movieCards.forEach((card) => {
-        const category = card.dataset.category || 'all';
-        const shouldShow = selectedFilter === 'all' || category === selectedFilter;
-        card.style.display = shouldShow ? '' : 'none';
-      });
+      updateMovieFilters();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', updateMovieFilters);
+  }
+
+  // Carousel auto-shuffle for Now Playing
+  const carouselTrack = document.getElementById('carouselTrack');
+  const carouselTitle = document.getElementById('carouselTitle');
+  const carouselDesc = document.getElementById('carouselDesc');
+  const carouselTags = document.getElementById('carouselTags');
+
+  const movies = [
+    {
+      title: 'Parasite',
+      desc: 'A sharp social thriller about class conflict and deception.',
+      tags: ['Thriller', 'Drama', 'Mystery']
+    }
+  ];
+
+  let currentSlide = 0;
+
+  const updateCarousel = () => {
+    const offset = currentSlide * -100;
+    carouselTrack.style.transform = `translateX(${offset}%)`;
+
+    const movie = movies[currentSlide];
+    carouselTitle.textContent = movie.title;
+    carouselDesc.textContent = movie.desc;
+    carouselTags.innerHTML = movie.tags.map(tag => `<span>${tag}</span>`).join('');
+  };
+
+  if (carouselTrack) {
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % movies.length;
+      updateCarousel();
+    }, 5000);
+  }
 
   movieCards.forEach((card) => {
     card.addEventListener('mousemove', (event) => {
@@ -53,7 +97,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const heroSlides = [
+  const carouselTrack = document.getElementById('carouselTrack');
+  const carouselTitle = document.getElementById('carouselTitle');
+  const carouselDesc = document.getElementById('carouselDesc');
+  const carouselTags = document.getElementById('carouselTags');
+
+  const movies = [
+    {
+      title: 'Inception',
+      desc: 'A mind-bending heist thriller. Enter dreams to steal secrets.',
+      tags: ['Sci-Fi', 'Action', 'Thriller']
+    },
+    {
+      title: 'Parasite',
+      desc: 'A sharp social thriller about class conflict and deception.',
+      tags: ['Thriller', 'Drama', 'Mystery']
+    },
+    {
+      title: 'The Matrix',
+      desc: 'A cyberpunk classic. Reality is not what it seems.',
+      tags: ['Sci-Fi', 'Action', 'Adventure']
+    }
+  ];
+
+  let currentSlide = 0;
+
+  const updateCarousel = () => {
+    const offset = currentSlide * -100;
+    carouselTrack.style.transform = `translateX(${offset}%)`;
+
+    const movie = movies[currentSlide];
+    carouselTitle.textContent = movie.title;
+    carouselDesc.textContent = movie.desc;
+    carouselTags.innerHTML = movie.tags.map(tag => `<span>${tag}</span>`).join('');
+  };
+
+  if (carouselTrack) {
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % movies.length;
+      updateCarousel();
+    }, 5000);
+  }
+
+
     {
       title: 'Inception',
       blurb: 'The ultimate mind-bending blockbuster.'

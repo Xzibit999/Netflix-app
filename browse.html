@@ -18,9 +18,15 @@
       <nav class="main-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a class="active" href="browse.html">Browse</a>
-        <a href="details.html">Details</a>
+        <a href="details.html">Movies</a>
+        <a href="browse.html">New &amp; Popular</a>
+        <a href="index.html">My List</a>
       </nav>
-      <a class="ghost-link" href="details.html">Watch now</a>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">🔍</button>
+        <a class="ghost-link" href="details.html">Watch now</a>
+        <button class="icon-btn profile-btn" aria-label="Open profile"><span>SV</span></button>
+      </div>
     </header>
 
     <main class="page-shell">
@@ -32,6 +38,10 @@
             Explore a hand-picked collection of films and series with polished visuals, rich metadata,
             and a premium browsing experience.
           </p>
+        </div>
+
+        <div class="search-bar">
+          <input type="search" placeholder="Search titles, genres, or ratings" aria-label="Search titles" />
         </div>
 
         <div class="filter-bar" aria-label="Category filters">
